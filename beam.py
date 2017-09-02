@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import requests
 
 # Gpio 11 - IR Break Beam
 # Gpio 13 - Beam Broken Flag led
@@ -35,6 +36,8 @@ def beam_callback(channel):
             GPIO.output(FLAG_LED, True)
             GPIO.output(FLAG_PIEZO, True)
             GPIO.output(MAIL_LED, True)
+            r = requests.post("http://localhost:8090/new_mail")
+            print(r.status_code, r.reason)
             
 
 def door_callback(channel):
