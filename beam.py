@@ -44,6 +44,8 @@ def door_callback(channel):
     if GPIO.input(DOOR_BUTTON):
         print "Door is opened"
         GPIO.output(MAIL_LED, False)
+        r = requests.post("http://localhost:8090/open_door")
+        print(r.status_code, r.reason)
     else:
         print "Door is closed"
     

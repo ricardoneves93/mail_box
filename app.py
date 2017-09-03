@@ -11,8 +11,13 @@ def index():
     return render_template("index.html")
 
 @app.route('/new_mail', methods=['POST'])
-def publish_hello():
-    sse.publish({"message": "New Mail!"}, type='greeting')
+def publish_new_mail():
+    sse.publish({"message": "New Mail!"}, type='new_mail')
+    return "Message sent!"
+
+@app.route('/open_door', methods=['POST'])
+def publish_opened_door():
+    sse.publish({"message": "Opened Door!"}, type='open_door')
     return "Message sent!"
 
 @app.route('/turn_on', methods=['POST'])

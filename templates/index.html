@@ -30,16 +30,18 @@
 
 		<!-- Javascript Includes -->
 
-		<!-- Event handler Javascript (Notifications) -->
-		<!--<script src="{{url_for('static', filename='js/event_handler.js')}}"></script>-->
-
 		<script type="text/javascript">
 			var source = new EventSource("{{ url_for('sse.stream') }}");
 
-			source.addEventListener('greeting', function(event) {
-				//var data = JSON.parse(event.data);
-				//alert("The server says " + data.message);
+			source.addEventListener('new_mail', function(event) {
 				$("#mail_status").css("background-color", "green");
+				var audio = new Audio('../static/sound/pacman.mp3');
+				audio.play();
+
+			}, false);
+
+			source.addEventListener('open_door', function(event) {
+				$("#mail_status").css("background-color", "red");
 
 			}, false);
 			    
