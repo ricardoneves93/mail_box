@@ -1,19 +1,62 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		  <title>Flask-SSE Quickstart</title>
+
+		  <!-- Bootstrap -->
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 	</head>
 	<body>
-		  <h1>Flask-SSE Quickstart</h1>
-		    <script>
-    var source = new EventSource("{{ url_for('sse.stream') }}");
-        source.addEventListener('greeting', function(event) {
-		        var data = JSON.parse(event.data);
-			        alert("The server says " + data.message);
-				    }, false);
-    source.addEventListener('error', function(event) {
-	            alert("Failed to connect to event stream. Is Redis running?");
-		        }, false);
-  </script>
+		<!--
+		<h1>Flask-SSE Quickstart</h1>
+		-->
+
+		  <!-- TOP 50% -->
+		<div class="row">
+			<div id="mail_status">
+				<span class="helper"></span>
+				<img src="{{url_for('static', filename='img/mail.png')}}" class="mail_image"/>
+			</div>
+			<div id="mail_stats">mail_status</div>
+		</div>
+
+		<!-- BOT 50% -->
+		<div class="row">
+			<div id="door_status">text</div>
+			<div id="reset_mail">img</div>
+		</div>
+
+		<!-- Javascript Includes -->
+
+		<!-- Event handler Javascript (Notifications) -->
+		<!--<script src="{{url_for('static', filename='js/event_handler.js')}}"></script>-->
+
+		<script type="text/javascript">
+			var source = new EventSource("{{ url_for('sse.stream') }}");
+
+			source.addEventListener('greeting', function(event) {
+				//var data = JSON.parse(event.data);
+				//alert("The server says " + data.message);
+				$("#mail_status").css("background-color", "green");
+
+			}, false);
+			    
+			source.addEventListener('error', function(event) {
+				alert("Failed to connect to event stream. Is Redis running?" + JSON.parse(event.data));
+			}, false);
+
+		</script>
+
+		<!-- Jquery -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+		<!-- Popper -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+		<!-- Boostrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
 	</body>
 </html>

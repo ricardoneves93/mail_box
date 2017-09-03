@@ -1,0 +1,47 @@
+html,body {
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
+#mail_status {
+	background-color: red;
+	text-align: center;
+}
+
+.helper {
+	display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.mail_image {
+	height: 200px;
+	width: 200px;
+	vertical-align: middle;
+}
+
+#inner_centered {
+	display: table-cell; vertical-align: middle;
+}
+
+#mail_stats {
+	background-color: purple;
+}
+
+#door_status {
+	background-color: red;
+}
+
+#reset_mail {
+	background-color: pink;
+}
+.row {
+    width:100%;
+    height:50%;
+}
+.row div {
+    width:50%;
+    height:100%;
+    float:left;
+}
