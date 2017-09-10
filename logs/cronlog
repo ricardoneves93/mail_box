@@ -1,3 +1,398 @@
 Starting GPIO script...
 Starting webserver...
 Example app listening on port 8080!
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is opened
+New client connected and was given id 1
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Door is closed
+Door is closed
+Door is opened
+Door is closed
+Door is closed
+Door is opened
+Door is opened
+Door is closed
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closedDoor is closed
+Door is opened
+
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam clear
+Door is opened
+Door is closed
+Door is opened
+Door is closed
+Door is closed
+Door is opened
+Door is closed
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is closed
+Door is closed
+Door is closed
+Door is closed
+Door is closed
+Door is opened Door is opened
+
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Door is closed
+Beam clear
+Door is closed
+Door is opened
+Door is closed
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is closed
+Door is opened
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is opened
+Door is opened
+Door is opened
+Beam clear
+Beam clear
+Beam clear
+Beam clear
+Beam clear
+Beam clear
+Door is closed
+Door is closed
+Door is closed
+Door is closed
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is opened
+New client connected and was given id 2
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is opened
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Door is closed
+Door is opened
+Door is opened
+Door is opened
+Door is closed
+Door is opened
+Door is opened
+Door is closed
+Door is closed
+Door is closed
+Door is opened
+Door is closed
+Door is closed
+Door is closed
+Door is opened
+Door is closed
+Door is opened
+Door is closed
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment
+Beam clear
+Beam Interrupted
+Traceback (most recent call last):
+  File "/home/pi/mail_box/beam.py", line 42, in beam_callback
+    number_received_mails += 1
+UnboundLocalError: local variable 'number_received_mails' referenced before assignment

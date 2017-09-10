@@ -30,6 +30,11 @@ GPIO.setup(MAIL_LED, GPIO.OUT)
 # Start with Mail Led turned off
 GPIO.output(MAIL_LED, False)
 
+# Start with Pioze turned off
+GPIO.output(FLAG_PIEZO, False)
+
+number_received_mails = 0
+
 def beam_callback(channel):
     if GPIO.input(BREAK_BEAM):
         print "Beam clear"
@@ -42,12 +47,16 @@ def beam_callback(channel):
             GPIO.output(FLAG_LED, True)
             GPIO.output(FLAG_PIEZO, True)
             GPIO.output(MAIL_LED, True)
-            server.send_message_to_all(NEW_MAIL_MSG)
+            global number_received_mails
+            number_received_mails += 1
+            server.send_message_to_all(NEW_MAIL_MSG + '_' + str(number_received_mails))
             
 
 def door_callback(channel):
     if GPIO.input(DOOR_BUTTON):
         print "Door is opened"
+        global number_received_mails
+        number_received_mails = 0
         GPIO.output(MAIL_LED, False)
         server.send_message_to_all(OPEN_DOOR_MSG)
     else:
