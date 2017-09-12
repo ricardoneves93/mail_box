@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
 import time
+#import threading
 import requests
+import repository
 from websocket_server import WebsocketServer
 
 # Gpio 11 - IR Break Beam
@@ -34,6 +36,7 @@ GPIO.output(MAIL_LED, False)
 GPIO.output(FLAG_PIEZO, False)
 
 number_received_mails = 0
+#e = threading.Event()
 
 def beam_callback(channel):
     if GPIO.input(BREAK_BEAM):
@@ -44,10 +47,13 @@ def beam_callback(channel):
         print "Beam Interrupted"
         # if the door is closed
         if GPIO.input(DOOR_BUTTON) == False:
+            #t = threading.Thread(name='non-block', target=flashLed, args=(e, 2))
+            #t.start()
             GPIO.output(FLAG_LED, True)
             GPIO.output(FLAG_PIEZO, True)
             GPIO.output(MAIL_LED, True)
             global number_received_mails
+            repository.insert_mail()
             number_received_mails += 1
             server.send_message_to_all(NEW_MAIL_MSG + '_' + str(number_received_mails))
             
@@ -58,10 +64,26 @@ def door_callback(channel):
         global number_received_mails
         number_received_mails = 0
         GPIO.output(MAIL_LED, False)
+        #e.set()
         server.send_message_to_all(OPEN_DOOR_MSG)
     else:
         print "Door is closed"
         server.send_message_to_all(CLOSE_DOOR_MSG)
+
+
+def flashLed(e, t):
+    print "flash the specified led every second"
+    while not e.isSet():
+        GPIO.output(MAIL_LED, True)
+        time.sleep(0.5)
+        event_is_set = e.wait(t)
+        if event_is_set:
+            GPIO.output(MAIL_LED, False)
+            print "stop led from flashing"
+        else:
+            GPIO.output(MAIL_LED, False)
+            "leds off"
+            time.sleep(0.8)
     
 
 # Add callback for IR Bream Beam
