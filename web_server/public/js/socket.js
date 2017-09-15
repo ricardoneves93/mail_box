@@ -20,6 +20,8 @@ function init() {
     	$("#mail_status").css("background-color", "green");
       console.log(message.split('_')[2]);
       $(".message-counter").html(message.split('_')[2]);
+      ion.sound.play("door_bell");
+      //document.getElementById("sound").innerHTML='<audio autoplay="autoplay"><source src="sound/pacman.mp3" type="audio/mpeg" /><embed hidden="true" autostart="true" loop="false" src="sound/pacman.mp3" /></audio>';
     }
     else if(message == "open_door") {
       $("#mail_status").css("background-color", "red");
