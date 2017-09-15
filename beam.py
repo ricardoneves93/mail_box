@@ -22,6 +22,11 @@ OPEN_DOOR_MSG = "open_door"
 CLOSE_DOOR_MSG = "close_door"
 RESET_MSG = "reset_mail"
 
+CLOSED_DOOR_STATE = "closed"
+OPENED_DOOR_STATE = "opened"
+EMPTY_MAIL_STATE = "empty"
+HAS_MAIL_STATE = "has_mail"
+
 GPIO.setmode(GPIO.BOARD)    
 GPIO.setup(BREAK_BEAM, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(DOOR_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -37,6 +42,9 @@ GPIO.output(FLAG_PIEZO, False)
 
 number_received_mails = 0
 #e = threading.Event()
+
+repository.update_current_mail_state(EMPTY_MAIL_STATE)
+repository.update_current_door_state(CLOSED_DOOR_STATE)
 
 def beam_callback(channel):
     if GPIO.input(BREAK_BEAM):
@@ -54,6 +62,7 @@ def beam_callback(channel):
             GPIO.output(MAIL_LED, True)
             global number_received_mails
             repository.insert_mail()
+            repository.update_current_mail_state(HAS_MAIL_STATE)
             number_received_mails += 1
             server.send_message_to_all(NEW_MAIL_MSG + '_' + str(number_received_mails))
             
@@ -64,10 +73,13 @@ def door_callback(channel):
         global number_received_mails
         number_received_mails = 0
         GPIO.output(MAIL_LED, False)
+        repository.update_current_door_state(OPENED_DOOR_STATE)
+        repository.update_current_mail_state(EMPTY_MAIL_STATE)
         #e.set()
         server.send_message_to_all(OPEN_DOOR_MSG)
     else:
         print "Door is closed"
+        repository.update_current_door_state(CLOSED_DOOR_STATE)
         server.send_message_to_all(CLOSE_DOOR_MSG)
 
 
