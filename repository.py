@@ -18,14 +18,6 @@ def insert_mail() :
 
     print(mail_data_id)
 
-
-def format_time(time_unit):
-    if len(str(time_unit)) == 1:
-        return '0' + str(time_unit)
-    else :
-        return str(time_unit)
-
-
 # Current states
 def get_current_state() :
     current_state_collection = db.current_state_collection
@@ -42,4 +34,12 @@ def update_current_door_state(door_state) :
     current_state_collection = db.current_state_collection
     state_id = get_current_state()
     current_state_collection.update_one({'_id': state_id}, {'$set': {'door': door_state}})
+
+
+#### Utils ####
+def format_time(time_unit):
+    if len(str(time_unit)) == 1:
+        return '0' + str(time_unit)
+    else :
+        return str(time_unit)
     
