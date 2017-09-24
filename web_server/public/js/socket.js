@@ -16,6 +16,9 @@ function init() {
     // e.data contains received string.
     console.log("onmessage: " + e.data);
     var message = e.data;
+    if(message == "pong") {
+    	$("#reset_mail").css("backgroundColor", getRandomColor())
+    }
     if(message.match(re) != null) {
       $("#mail_status").css("background-color", "green");
       console.log(message.split('_')[2]);
@@ -42,6 +45,38 @@ function init() {
   ws.onerror = function(e) {
     console.log("onerror");
     console.log(e)
+    var d = new Date();
+	var hours = d.getHours();
+	var minutes = d.getMinutes();
+	alert("Closed at: " + hours + ':' + minutes);
+	alert("Closed reason: " + e);
   };
 
 }
+
+
+function sendPing() {
+	console.log("send ping");
+	ws.send("ping");
+}
+
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+$(document).ready(function() {
+	/*
+	var d = new Date();
+	var hours = d.getHours();
+	var minutes = d.getMinutes();
+	alert("Started at: " + hours + ':' + minutes);
+	*/
+	window.setInterval(sendPing, 2000);
+
+});
