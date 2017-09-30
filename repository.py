@@ -26,11 +26,13 @@ def get_current_state() :
     return state_id
 
 def update_current_mail_state(mail_state) :
+    print('Updating current mail_state to ' + str(mail_state))
     current_state_collection = db.current_state_collection
     state_id = get_current_state()
     current_state_collection.update_one({'_id': state_id}, {'$set': {'mail': mail_state}})
 
 def update_current_door_state(door_state) :
+    print('Updating current door state to' + str(door_state))
     current_state_collection = db.current_state_collection
     state_id = get_current_state()
     current_state_collection.update_one({'_id': state_id}, {'$set': {'door': door_state}})

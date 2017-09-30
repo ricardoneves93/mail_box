@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-#import threading
 import requests
 import repository
 from websocket_server import WebsocketServer
