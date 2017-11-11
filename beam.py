@@ -44,8 +44,8 @@ GPIO.output(FLAG_PIEZO, False)
 number_received_mails = 0
 #e = threading.Event()
 
-repository.update_current_mail_state(EMPTY_MAIL_STATE)
-repository.update_current_door_state(CLOSED_DOOR_STATE)
+#repository.update_current_mail_state(EMPTY_MAIL_STATE)
+#repository.update_current_door_state(CLOSED_DOOR_STATE)
 
 def beam_callback(channel):
     if GPIO.input(BREAK_BEAM):

@@ -10,7 +10,6 @@ var monk = require('monk');
 
 var db = monk('localhost:27017/mail');
 const mail_state_collection = 'current_state_collection';
-
 // Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
