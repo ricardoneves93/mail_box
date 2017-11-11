@@ -1,3 +1,4 @@
+#!/bin/sh
 sudo apt-get update
 sudo apt-get install -y git
 sudo apt-get install -y mongodb
@@ -9,3 +10,4 @@ sudo pip install pifcm
 # Install nodejs for ARM Chips
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
 sudo dpkg -i node_latest_armhf.deb
+# Add crontab "@reboot sudo sh /home/pi/mail_box/launcher.sh > /home/pi/mail_box/logs/cronlog"
