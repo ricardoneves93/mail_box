@@ -85,7 +85,7 @@ def door_callback(channel):
         server.send_message_to_all(OPEN_DOOR_MSG)
         # Send FCM notification (Open door and reset mail)
         result = push_service.notify_topic_subscribers(topic_name="mail", message_body=OPEN_DOOR_MSG)
-        result = push_service.notify_topic_subscribers(topic_name="mail", message_body=RESET_MSG)
+        #result = push_service.notify_topic_subscribers(topic_name="mail", message_body=RESET_MSG)
     else:
         print "Door is closed"
         # Update door status to closed
@@ -134,6 +134,7 @@ def client_left(client, server):
 def message_received(client, server, message):
     if message == "ping":
         server.send_message(client, "pong")
+
 
 
 
