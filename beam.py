@@ -4,6 +4,7 @@ import requests
 import repository
 from websocket_server import WebsocketServer
 from pyfcm import FCMNotification
+import threading
 
 push_service = FCMNotification(api_key="AAAA8Er9Crw:APA91bFPCIKjFBN2LqqIstFM2YmGPt60qhHmH8t57sWV7QN2hqvxJqQMSV-LRx3e3Fxwe1hqpyE5vqHk8UKYSolXWHlkIJRSUE0_rGLWGEmbCRLkNEkzPgEYEQw0sFzajpvxX4o6UZJa")
 # Gpio 11 - IR Break Beam
@@ -47,6 +48,40 @@ number_received_mails = 0
 #repository.update_current_mail_state(EMPTY_MAIL_STATE)
 #repository.update_current_door_state(CLOSED_DOOR_STATE)
 
+
+def door_callback(channel):
+    # Door is opened
+    if GPIO.input(DOOR_BUTTON):
+        print "Door is opened"
+        global number_received_mails
+        number_received_mails = 0
+        # Turn off mail led
+        GPIO.output(MAIL_LED, False)
+        # Update current door status to opened
+        repository.update_current_door_state(OPENED_DOOR_STATE)
+        # Set mail state to empty
+        repository.update_current_mail_state(EMPTY_MAIL_STATE)
+        server.send_message_to_all(OPEN_DOOR_MSG)
+        # Send FCM notification (Open door and reset mail)
+        #result = push_service.notify_topic_subscribers(topic_name="mail", message_body=OPEN_DOOR_MSG)
+        #p = Process(target=send_fcm, args=('mail', OPEN_DOOR_MSG))
+        #p.start()
+        #p.join()
+        t = threading.Thread(target=send_fcm, args=('mail', OPEN_DOOR_MSG))
+        t.start()
+    else:
+        print "Door is closed"
+        # Update door status to closed
+        repository.update_current_door_state(CLOSED_DOOR_STATE)
+        server.send_message_to_all(CLOSE_DOOR_MSG)
+        # Send FCM notification to inform that the door was closed
+        #result = push_service.notify_topic_subscribers(topic_name="mail", message_body=CLOSE_DOOR_MSG)
+        #p = Process(target=send_fcm, args=('mail', CLOSE_DOOR_MSG))
+        #p.start()
+        #p.join()
+        t = threading.Thread(target=send_fcm, args=('mail', CLOSE_DOOR_MSG))
+        t.start()
+
 def beam_callback(channel):
     if GPIO.input(BREAK_BEAM):
         print "Beam clear"
@@ -67,32 +102,12 @@ def beam_callback(channel):
             number_received_mails += 1
             server.send_message_to_all(NEW_MAIL_MSG + '_' + str(number_received_mails))
             # Send notification to FCM
-            result = push_service.notify_topic_subscribers(topic_name="mail", message_body=NEW_MAIL_MSG)
-            
-
-def door_callback(channel):
-    # Door is opened
-    if GPIO.input(DOOR_BUTTON):
-        print "Door is opened"
-        global number_received_mails
-        number_received_mails = 0
-        # Turn off mail led
-        GPIO.output(MAIL_LED, False)
-        # Update current door status to opened
-        repository.update_current_door_state(OPENED_DOOR_STATE)
-        # Set mail state to empty
-        repository.update_current_mail_state(EMPTY_MAIL_STATE)
-        server.send_message_to_all(OPEN_DOOR_MSG)
-        # Send FCM notification (Open door and reset mail)
-        result = push_service.notify_topic_subscribers(topic_name="mail", message_body=OPEN_DOOR_MSG)
-        #result = push_service.notify_topic_subscribers(topic_name="mail", message_body=RESET_MSG)
-    else:
-        print "Door is closed"
-        # Update door status to closed
-        repository.update_current_door_state(CLOSED_DOOR_STATE)
-        server.send_message_to_all(CLOSE_DOOR_MSG)
-        # Send FCM notification to inform that the door was closed
-        result = push_service.notify_topic_subscribers(topic_name="mail", message_body=CLOSE_DOOR_MSG)
+            #result = push_service.notify_topic_subscribers(topic_name="mail", message_body=NEW_MAIL_MSG)
+            t = threading.Thread(target=send_fcm, args=('mail', NEW_MAIL_MSG))
+            t.start()
+            #p = Process(target=send_fcm, args=('mail', NEW_MAIL_MSG))
+            #p.start()
+            #p.join()
 
 
 def flashLed(e, t):
@@ -114,6 +129,9 @@ def flashLed(e, t):
 GPIO.add_event_detect(BREAK_BEAM, GPIO.BOTH, callback=beam_callback)
 # Add callback for Door Button
 GPIO.add_event_detect(DOOR_BUTTON, GPIO.BOTH, callback=door_callback)
+
+def send_fcm(topic_name, message_body):
+	push_service.notify_topic_subscribers(topic_name, message_body)
 
 
 
